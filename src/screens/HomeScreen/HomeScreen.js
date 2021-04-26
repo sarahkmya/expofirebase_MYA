@@ -41,6 +41,8 @@ function HomeScreen2({ navigation }) {
         <Card>
           <Card.Content>
             <Title>{item.title}</Title>
+            <Paragraph>{item.pricing}</Paragraph>
+            <Paragraph>{item.pick_up}</Paragraph>
             <Paragraph>{item.full_description}</Paragraph>
           </Card.Content>
           <Card.Cover source={{ uri: item.featured_image }} />
@@ -91,7 +93,7 @@ function DetailsScreen({ navigation }) {
   return (
     <View style={styles.containerStyle}>
       <ScrollView contentContainerStyle={styles.scrollViewStyle}>
-        <Text style={styles.headingStyle}>Enter an upcoming meal</Text>
+        <Text style={styles.headingStyle}> Choose your crafting Kit!</Text>
 
         <FormBuilder
           form={form}
@@ -139,6 +141,40 @@ function DetailsScreen({ navigation }) {
             {
               type: 'input',
 
+              name: 'pricing',
+
+              label: 'Pricing',
+
+              rules: {
+                required: {
+                  value: false,
+                },
+              },
+              textInputProps: {
+                multiline: true,
+                numberOfLines: 4
+              },
+            },
+            {
+              type: 'input',
+
+              name: 'pick_up',
+
+              label: 'Pick-up',
+
+              rules: {
+                required: {
+                  value: false,
+                },
+              },
+              textInputProps: {
+                multiline: true,
+                numberOfLines: 4
+              },
+            },
+            {
+              type: 'input',
+
               name: 'full_description',
 
               label: 'Full Description',
@@ -148,6 +184,7 @@ function DetailsScreen({ navigation }) {
                   value: false,
                 },
               },
+
 
               textInputProps: {
                 multiline: true,
